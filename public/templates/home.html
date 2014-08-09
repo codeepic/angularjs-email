@@ -1,0 +1,55 @@
+<div id="sidebar" class="small-4 columns" ng-controller="MailListingController">
+<input type="search" placeholder="Filter messages" ng-model="search.from" />
+{{search}}
+	<h2>Emails</h2>
+	<ul id="emailListing">
+		<li email-listing email="email" action='setSelectedEmail(selectedEmail)' ng-repeat="email in (emails | orderBy: 'sent_at':true) | limitTo: 5 | filter:search" ng-click="setSelectedEmail(email)">
+			<div class="container emailListing" ng-class="{selected: isSelected(email)}">
+				<div class="small-8 columns">
+					{{email.from}}
+				</div>
+				<div class="small-12 columns">
+					{{email.subject}}
+				</div>
+			</div>
+		</li>
+	</ul>
+</div>	
+<div class="content small-8 columns" ng-controller="ContentController">	
+	<div ng-show="!selectedEmail">
+		<h2>No conversation selected.</h2>
+	</div>
+	<div ng-show="selectedEmail">
+		<form id="replyForm" ng-submit="sendEmailReply()" ng-show="showingReply">
+			<div class="row collapse">
+				<div class="small-1 columns">
+					<span class="prefix">To</span>
+				</div>
+				<div class="small-11 columns">
+					<input type="email" ng-model="reply.to" placeholder="">
+				</div>
+				<div class="small-12 columns">
+					<textarea ng-model="reply.body">
+						{{reply.body}}
+					</textarea>	
+				</div>
+			</div>
+			<button class="button radius" ng-click="sendReply()">Send</button>
+			<button class="button radius alert" ng-click="toggleReplyForm()">Cancel</button>
+		</form>
+		<div class="row header">
+			<div class="small-6 columns">{{selectedEmail.subject}}</div>
+			<div class="small-6 columns">{{selectedEmail.sent_at | date }}</div>
+		</div>
+		<div class="row actions">
+			<div class="small-8 columns">
+				<b>{{selectedEmail.from.join(", ")}}</b> to <b>{{selectedEmail.to.join(", ")}}</b>
+			</div>
+			<a ng-click="toggleReplyForm()" class="button radius push-1">Reply</a>
+		</div>
+		<div class="row">
+			<div class="small-12 columns" ng-bind-html="selectedEmail.body"></div>
+		</div>
+	</div>
+
+</div>

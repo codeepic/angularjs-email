@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Angular email app</title>
+	<link rel="stylesheet" href="css/normalize.css" />
+	<link rel="stylesheet" href="css/foundation.css" />
+	<link rel="stylesheet" href="css/style.css">
+
+  <script src="js/vendor/foundation/modernizr.js"></script>
+
+</head>
+<body ng-app="myApp">
+	<nav class="top-bar">
+		<ul class="title-area">
+			<li class="name">
+				<h1><a>Mail</a></h1>
+			</li>
+		</ul>
+
+		<section class="top-bar-section">
+			<ul class="right">
+				<li ng-show="loading"><img src="images/spinner_32.gif" /></li>
+				<li><a href="#/"><img src="images/home.gif" /></a></li>
+				<li><a href="#/settings"><img src="images/settings.gif" /></a></li>
+			</ul>
+		</section>
+	</nav>
+
+
+	
+	<div ng-view></div>
+
+	<script src="js/vendor/foundation/jquery.js"></script>  
+	<script src="js/vendor/foundation/foundation.min.js"></script>  
+	
+	<script src="js/vendor/angular.js"></script>
+	<script src="js/vendor/ng-route.js"></script>
+	<script src="js/vendor/ng-sanitize.js"></script>
+	<script src="js/vendor/ng-resource.js"></script>
+	<script src="js/main.js"></script>
+
+	<script>
+      $(document).foundation();
+  </script>
+
+</body>
+</html>

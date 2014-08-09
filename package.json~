@@ -1,0 +1,22 @@
+{
+  "name": "Angular Email App",
+  "version": "0.0.1",
+  "description": "Angular is cool",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codeepic/angular-email-app"
+  },
+  "author": "Xavier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codeepic/angular-email-app/issues"
+  },
+  "homepage": "https://github.com/codeepic/angular-email-app/",
+  "dependencies": {
+    "express": "~4.4.1"
+  }
+}
